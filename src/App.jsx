@@ -9,12 +9,15 @@ import SearchList from './component/ContactList/searchList';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
   //로컬 스토리지 저장
   useEffect(() => {
     const savedItems = localStorage.getItem('contactList');
     if (savedItems) {
-      setItems(JSON.parse(savedItems));
+      const parsedItems = JSON.parse(savedItems);
+      setItems(parsedItems);
+      setFilteredItems(parsedItems);
     }
   }, []);
   return (
@@ -23,8 +26,8 @@ function App() {
       <div className="container">
         <InputCon setList={setItems} />
         <div>
-          <SearchList />
-          <ContactList items={items} setList={setItems} />
+          <SearchList items={items} setFilteredItems={setFilteredItems} />
+          <ContactList items={filteredItems} setList={setItems} />
         </div>
       </div>
     </>
