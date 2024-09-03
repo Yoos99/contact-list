@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  border-radius: 10px;
+}
+
+.list li:hover {
+  background-color: #007bff;
+}
+
+.list li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.list p {
+  margin: 0;
+  padding: 0.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid #4ea8de;
+}
+.list i {
+  cursor: pointer;
+  display: block;
+  padding: 1rem;
+}
+
+.list i:hover {
+  color: rgb(250, 235, 32);
+}
