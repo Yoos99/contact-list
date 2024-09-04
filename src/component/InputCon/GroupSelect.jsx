@@ -9,7 +9,7 @@ export default function GroupSelect({ options, value, onChange, onOpenModal }) {
           </option>
         ))}
       </select>
-      <button onClick={onOpenModal}>조직추가</button>
+      <button onClick={onOpenModal}>그룹 관리</button>
     </div>
   );
 }

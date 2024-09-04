@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../css/InputCon.css';
 import NameInput from './NameInput';
 import PhoneNumInput from './PhoneNumInput';
@@ -15,6 +15,7 @@ export default function InputCon({ setList }) {
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '',
@@ -22,10 +23,27 @@ export default function InputCon({ setList }) {
     memo: '',
   });
 
+  useEffect(() => {
+    const savedGroups = localStorage.getItem('groupOptions');
+    if (savedGroups) {
+      setOptions(JSON.parse(savedGroups));
+    }
+  }, []);
+
   const addGroup = (newGroup) => {
     const newOption = { name: newGroup, value: newGroup.toLowerCase() };
-    setOptions([...options, newOption]);
+    const updatedOptions = [...options, newOption];
+    setOptions(updatedOptions);
+    localStorage.setItem('groupOptions', JSON.stringify(updatedOptions));
     setFormData({ ...formData, selectedGroup: newOption.value });
+  };
+
+  const removeGroup = (groupValue) => {
+    const updatedOptions = options.filter(
+      (option) => option.value !== groupValue
+    );
+    setOptions(updatedOptions);
+    localStorage.setItem('groupOptions', JSON.stringify(updatedOptions)); // 로컬스토리지에 저장
   };
 
   const handleChange = (e) => {
@@ -86,13 +104,14 @@ export default function InputCon({ setList }) {
         onOpenModal={handleOpenModal}
       />
       <MemoInput value={formData.memo} onChange={handleChange} />
-      <button onClick={addItem}>
+      <button className="addBar" onClick={addItem}>
         <i className="fa-solid fa-plus"></i>
       </button>
       {isModalOpen && (
         <GroupModal
           options={options}
           onAddGroup={addGroup}
+          onRemoveGroup={removeGroup}
           onCloseModal={handleCloseModal}
         />
       )}
