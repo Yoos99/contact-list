@@ -23,9 +23,10 @@ export default function ContactList({ items, setList }) {
       <ul>
         {items.map((item, index) => (
           <li key={index}>
-            <p>{item.name}</p>
-            <p>{item.phoneNumber}</p>
-            <p>{item.selectedGroup}</p>
+            <p className="name">{item.name}</p>
+            <p className="phoneNum">{item.phoneNumber}</p>
+
+            <p className="group">{item.selectedGroup}</p>
             <button onClick={() => handleDetailsClick(item)}>세부사항</button>
             <button
               className="fa-regular fa-trash-can"

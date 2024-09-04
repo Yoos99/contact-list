@@ -1,7 +1,8 @@
 .searchList {
   display: flex;
   gap: 1rem;
-  transform: translateY(-50%);
+  margin-top: 50px;
+  align-items: center;
 }
 
 .searchList > * {
@@ -9,13 +10,15 @@
   outline: none;
   border: none;
   border-radius: 10px;
-
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 .searchList input {
   flex: 1;
-  background-color: #ecf8ff;
+  background-color: white;
+  max-width: 400px;
+  min-width: 200px;
+  box-sizing: border-box;
 }
 
 .searchList input:focus {
@@ -28,10 +31,11 @@
   background-color: #007bff;
   color: white;
   cursor: pointer;
+
+  max-width: 200px;
 }
 
 .searchList button:after {
-  /* content: '+'; */
   display: flex;
   justify-content: center;
   align-items: center;

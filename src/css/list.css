@@ -1,35 +1,54 @@
 .list {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-
-  border-radius: 10px;
+  margin-top: 20px;
 }
 
-.list li:hover {
-  background-color: #007bff;
+.list ul {
+  padding: 0;
 }
 
 .list li {
-  flex: 1;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  text-align: left;
-  margin-bottom: 0.5rem;
+  padding: 10px 0;
+  border-bottom: 1px solid #4ea8de;
+  list-style-type: none;
 }
 
 .list p {
   margin: 0;
-  padding: 0.5rem;
+  padding: 0 10px;
   font-weight: bold;
-  border-bottom: 1px solid #4ea8de;
-}
-.list i {
-  cursor: pointer;
-  display: block;
-  padding: 1rem;
+  width: 100px;
+  text-align: left;
+  flex: 1;
 }
 
-.list i:hover {
-  color: rgb(250, 235, 32);
+.phoneNum {
+  min-width: 150px;
+}
+
+.list button {
+  margin-left: 10px;
+  padding: 7px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list button:hover {
+  background-color: #0056b3;
+}
+
+.list .fa-trash-can {
+  margin-left: 10px;
+  background-color: #ff4444;
+  border-radius: 5px;
+  padding: 9px 10px;
+}
+
+.list .fa-trash-can:hover {
+  background-color: #cc0000;
 }
