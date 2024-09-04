@@ -1,12 +1,25 @@
 .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
+  justify-content: space-between; /* 양쪽 요소 간의 간격을 일정하게 */
+  align-items: flex-start;
+  padding: 50px;
+  gap: 70px;
+  max-width: 1200px;
+  margin: 0 auto; /* 화면 중앙에 정렬 */
 }
 
-@media screen and (max-width: 768px) {
+.container > div {
+  flex: 1;
+  max-width: 700px; /* 각 컴포넌트의 최대 너비 설정 */
+}
+
+@media screen and (max-width: 868px) {
   .container {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .container > div {
+    max-width: 100%;
   }
 }
